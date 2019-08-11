@@ -24,6 +24,18 @@ class Api {
             };
         }
     }
+
+    async findByQuery(query) {
+        try {
+            const { data } = await api.get(`/sites/MLA/search?q=${query}`);
+            return data;
+        } catch (err) {
+            return {
+                err,
+                msg: 'Erro ao buscar os produtos'
+            };
+        }
+    }
 }
 
 module.exports = {
