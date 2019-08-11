@@ -2,8 +2,9 @@ const { Router } = require('express');
 
 const routes = Router();
 
-routes.get('/items/:id', (req, res) => {
-    return res.status(200).json({ success: true });
-});
+// CONTROLLERS
+const { DetailsController } = require('../controllers/DetailsController');
+
+routes.get('/api/items/:id', DetailsController.show);
 
 module.exports = routes;
