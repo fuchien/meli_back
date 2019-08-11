@@ -27,7 +27,10 @@ class Api {
 
     async findByQuery(query) {
         try {
-            const { data } = await api.get(`/sites/MLA/search?q=${query}`);
+            const limit = 4;
+            const { data } = await api.get(
+                `/sites/MLA/search?q=${query}&limit=${limit}`
+            );
             return data;
         } catch (err) {
             return {
