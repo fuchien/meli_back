@@ -40,10 +40,4 @@ describe('Details', () => {
         expect(response.status).toBe(500);
         expect(response.body).toEqual(detailsMock);
     });
-
-    it('should return error bad request', async () => {
-        const query = 'MLA795803301';
-        const response = await request(server).get(`/api/items/${query}`);
-        expect(response.status).toBe(400);
-    });
 });
