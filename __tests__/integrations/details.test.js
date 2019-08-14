@@ -2,7 +2,10 @@ const request = require('supertest');
 const { DetailsService } = require('../../src/services/DetailsService');
 
 // nocks
-const { detailsMock } = require('../mocks/details.mock');
+const {
+    mockDetails,
+    mockDescription
+} = require('../../src/services/DetailsService/mock');
 
 jest.mock('../../src/services/DetailsService');
 
@@ -10,15 +13,15 @@ const server = require('../../src/server');
 
 describe('Details', () => {
     it('should return item details and description by id', async () => {
-        const descriptionMock = {
+        const mockDescription = {
             plain_text:
                 'Aspectos Destacados Del Producto\n\nPantalla Retina IPS Multi-Touch de 4 "\nResolución nativa de 1136 x 640 a 326 ppi'
         };
         DetailsService.findById.mockImplementation(() =>
-            Promise.resolve(detailsMock)
+            Promise.resolve(mockDetails)
         );
         DetailsService.findDescriptionById.mockImplementation(() =>
-            Promise.resolve(descriptionMock)
+            Promise.resolve(mockDescription)
         );
         const id = 'MLA795803301';
         const response = await request(server).get(`/api/items/${id}`);
@@ -29,15 +32,15 @@ describe('Details', () => {
     });
 
     it('should return error to get details', async () => {
-        const detailsMock = {
+        const mockDetails = {
             msg: 'Erro ao pegar os dados'
         };
         DetailsService.findById.mockImplementation(() =>
-            Promise.reject(detailsMock)
+            Promise.reject(mockDetails)
         );
         const id = 'MLA795803301';
         const response = await request(server).get(`/api/items/${id}`);
         expect(response.status).toBe(500);
-        expect(response.body).toEqual(detailsMock);
+        expect(response.body).toEqual(mockDetails);
     });
 });
