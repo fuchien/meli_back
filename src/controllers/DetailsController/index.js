@@ -1,4 +1,8 @@
+// SERVICES
 const { DetailsService } = require('../../services/DetailsService');
+
+// MODELS
+const { Details } = require('../../models/Details');
 
 class DetailsController {
     async show(req, res) {
@@ -6,7 +10,8 @@ class DetailsController {
             const id = req.params.id;
             const details = await DetailsService.findById(id);
             const description = await DetailsService.findDescriptionById(id);
-            return res.status(200).json({ details, description });
+            const response = Details({ details, description }).getResponse();
+            return res.status(200).json(response);
         } catch (err) {
             return res.status(500).json(err);
         }
