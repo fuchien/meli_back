@@ -12,6 +12,6 @@ const { ProductsController } = require('../controllers/ProductsController');
 const products = require('../validators/products');
 
 routes.get('/api/items', validate(products), handle(ProductsController.index));
-routes.get('/api/items/:id', DetailsController.show);
+routes.get('/api/items/:id', handle(DetailsController.show));
 
 module.exports = routes;
