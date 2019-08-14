@@ -1,6 +1,15 @@
 const { DetailsService } = require('../../src/services/DetailsService');
 const { Api } = require('../../src/services/api');
 
+// Variables
+const Variables = require('../../src/config/variables');
+
+// MOCKS
+const {
+    mockDescription,
+    mockDetails
+} = require('../../src/services/DetailsService/mock');
+
 jest.mock('../../src/services/api');
 
 describe('Details service', () => {
@@ -44,6 +53,22 @@ describe('Details service', () => {
         const response = await DetailsService.findDescriptionById(id);
         expect(response).toHaveProperty('plain_text');
         expect(response).toEqual(descriptionMock);
+    });
+
+    it('should return item description mock', async () => {
+        Variables.useMock = true;
+        const id = 'MLA795803301';
+        const response = await DetailsService.findDescriptionById(id);
+        expect(response).toEqual(mockDescription);
+        Variables.useMock = false;
+    });
+
+    it('should return item details mock', async () => {
+        Variables.useMock = true;
+        const id = 'MLA795803301';
+        const response = await DetailsService.findById(id);
+        expect(response).toEqual(mockDetails);
+        Variables.useMock = false;
     });
 
     it('should return error to get description', async () => {
