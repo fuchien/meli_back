@@ -11,7 +11,7 @@ class DetailsController {
             const details = await DetailsService.findById(id);
             const description = await DetailsService.findDescriptionById(id);
             const response = Details({ details, description }).getResponse();
-            return res.status(200).json(response);
+            return res.status(200).json({ response, success: true });
         } catch (err) {
             return res.status(500).json(err);
         }
