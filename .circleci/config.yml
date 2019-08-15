@@ -1,6 +1,9 @@
 version: 2.1
 jobs:
     build:
+        branches:
+            only:
+                - develop
         working_directory: ~/public
         docker:
             - image: circleci/node:10.15.3
