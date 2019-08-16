@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    melicidade_back:
+        build: .
+        ports:
+            - '3333:3333'
+        container_name: melicidade_back
+        hostname: melicidade_back
+        command: npm start
