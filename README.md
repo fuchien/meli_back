@@ -33,7 +33,7 @@ npm install
 _Start server_
 
 ```
-npm install
+npm start
 ```
 
 ---
