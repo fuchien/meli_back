@@ -46,6 +46,23 @@ _Open your favourite browser or postman, and test_
 http://localhost:3333
 ```
 
+---
+
+## CI/CD Pipeline
+
+_Technologies_
+
+```
+Circle CI
+Heroku
+```
+
+_You can see the pipeline config on **.circleci/config.yml** file_
+
+_The jobs are **build** - **test** - **deploy to development**, to staging is manually on **Heroku** page_
+
+---
+
 ## Description and solution
 
 The backend will receive the path and query params, so request in MELI API.
