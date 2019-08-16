@@ -73,7 +73,7 @@ You will have each test in **terminal** and **coverage** for each file. _Integra
 
 ## getDetails
 
-Returns all games log object
+Return the product Details
 
 **Input:** _path parameter_
 
@@ -114,7 +114,7 @@ Returns all games log object
 
 ## getProducts
 
-Returns the game log object
+Return max 4 Products searched by query
 
 **Input:** _query parameter_
 
