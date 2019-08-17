@@ -38,7 +38,7 @@ npm start
 
 ---
 
-### For both, the _PORT_ is _3333_\*\*
+### For both, the _PORT_ is _3333_
 
 _Open your favourite browser or postman, and test_
 
