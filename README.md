@@ -1,6 +1,6 @@
 # Melicidade backend test
 
-> Challenge to create a simple backend for front API to GET data from MELI API
+> The challenge create a simple backend for front API to GET data from MELI API
 
 ## Developing
 
@@ -192,3 +192,4 @@ Return max 4 Products searched by query
 # Todo list
 
 -   Add API documentation with Swagger.
+-   Build application.
