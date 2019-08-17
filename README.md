@@ -190,7 +190,8 @@ Return max 4 Products searched by query
 
 ---
 
-# Todo list
+# To do list
 
 -   Add API documentation with Swagger.
--   Build application.
+-   Build the application to bundle.
+-   Add health check.
