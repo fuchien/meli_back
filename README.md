@@ -74,6 +74,7 @@ _Technologies_
 ```
 Express to create API routes
 Jest to unit and integration tests
+Sentry to get production exception errors
 ```
 
 ---
