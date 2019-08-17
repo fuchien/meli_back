@@ -69,6 +69,13 @@ The demo link --> [meli-api-dev.herokuapp.com](https://meli-api-dev.herokuapp.co
 
 The backend will receive the path and query params, so request in MELI API.
 
+_Technologies_
+
+```
+Express to create API routes
+Jest to unit and integration tests
+```
+
 ---
 
 ## Testing
