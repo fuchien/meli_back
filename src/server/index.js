@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
+const validate = require('express-validation');
 const routes = require('../routes');
+const Youch = require('youch');
 
 class App {
     constructor() {
@@ -8,6 +10,7 @@ class App {
 
         this.middlewares();
         this.routes();
+        this.exception();
     }
 
     middlewares() {
@@ -27,6 +30,24 @@ class App {
 
     routes() {
         this.express.use(routes);
+    }
+
+    exception() {
+        this.express.use(async (err, req, res, next) => {
+            if (err instanceof validate.ValidationError) {
+                return res.status(err.status).json(err);
+            }
+
+            if (process.env.NODE_ENV !== 'production') {
+                const youch = new Youch(err, req);
+
+                return res.json(await youch.toJSON(err));
+            }
+
+            return res
+                .status(err.status || 500)
+                .json({ msg: 'Internal Server Error' });
+        });
     }
 }
 
